@@ -18,15 +18,21 @@
     <ClCompile Include="src\RaylibEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ClCompile Include="GameEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\include\JRExports.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\include\RaylibEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\GameEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\include\Engine_Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
