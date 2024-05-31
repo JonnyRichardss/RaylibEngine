@@ -1,5 +1,5 @@
-#ifndef USE_GAMEENGINE
-#define USE_GAMEENGINE
+#ifndef GAMEENGINE_H
+#define GAMEENGINE_H
 #include "Engine_Constants.h"
 namespace JREngine::Engine {
 	class GameEngine {
@@ -18,6 +18,6 @@ namespace JREngine::Engine {
 	};
 }
 
-#endif // USE_GAMEENGINE
+#endif // GAMEENGINE_H
 
 

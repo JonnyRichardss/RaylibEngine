@@ -1,5 +1,5 @@
-#ifndef USE_GAMENGINE
-#define USE_GAMENGINE
+#ifndef RAYLIBENGINE_H
+#define RAYLIBENGINE_H
 
 namespace JREngine::Engine {
 	//namespace contains all the functions that are intended to be used for the engine
@@ -16,4 +16,4 @@ namespace JREngine::Engine {
 	void EndGame();
 }
 
-#endif // !USE_GAMENGINE
+#endif // !RAYLIBENGINE_H

@@ -46,7 +46,7 @@ namespace JREngine::Engine {
 			//render
 			BeginDrawing();
 			ClearBackground(RAYWHITE);
-			DrawText("Hello, Raylib!", 190, 200, 20, BLACK);
+			DrawText("Hello, Raylib!", GetRenderWidth()/2, GetRenderHeight()/2, 20, BLACK);
 			EndDrawing();
 		}
 	}
