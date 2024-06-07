@@ -3,47 +3,31 @@
 #include "raylib.h"
 namespace JREngine
 {
-	//only supporting two levels of texture wrapping complexity for now - this way it can be expandable to support nmap or the intermediate-complexity versions
-	enum TextureWrapperTarget {
-		TWT_DrawTextureEx,
-		TWT_DrawTexturePro
-	};
 	struct TextureWrapper {
-		//wrapper target can be switched on to find out which fields are initialised and can therefore be used in draw calls
-		TextureWrapperTarget Function;
 		Texture2D Texture;
-		Color Tint;
-	protected:
-		//base class cannot be instantiated
-		TextureWrapper() = default;
-	};
-
-	struct TextureWrapperEx : TextureWrapper {
-		Vector2 Position;
-		float Rotation;
-		float Scale;
-		TextureWrapperEx(Texture2D texture, Vector2 position, float rotation, float scale, Color tint) {
-			Function = TWT_DrawTextureEx;
-			Texture = texture;
-			Position = position;
-			Rotation = rotation;
-			Scale = scale;
-			Tint = tint;
-		}
-	};
-	struct TextureWrapperPro : TextureWrapper {
 		Rectangle SourceRect;
 		Rectangle DestRect;
 		Vector2 Origin;
 		float Rotation;
-		TextureWrapperPro(Texture2D texture, Rectangle sourceRect, Rectangle destRect, Vector2 origin, float rotation, Color tint) {
-			Function = TWT_DrawTexturePro;
-			Texture = texture;
-			SourceRect = sourceRect;
-			DestRect = destRect;
-			Origin = origin;
-			Rotation = rotation;
-			Tint = tint;
+		Color Tint;
+		//DrawTexturePro-like constructor
+		TextureWrapper(Texture2D texture, Rectangle sourceRect, Rectangle destRect, Vector2 origin, float rotation, Color tint) :
+			Texture(texture),
+			SourceRect(sourceRect),
+			DestRect(destRect),
+			Origin(origin),
+			Rotation(rotation),
+			Tint(tint){}
+		//DrawTextureEx-like constructor 
+		// (a little different since I am transforming the origin to the centre of the object)
+		TextureWrapper(Texture2D texture, Vector2 position, Vector2 size, float rotation, Color tint) :
+			Texture(texture),
+			Rotation(rotation),
+			Tint(tint)
+		{
+			SourceRect = { 0.0f, 0.0f, (float)texture.width, (float)texture.height };
+			DestRect = { position.x - (size.x / 2.0f), position.y - (size.y / 2.0f), size.x, size.y};
+			Origin = { (size.x / 2.0f), (size.y / 2.0f) };
 		}
 	};
 }

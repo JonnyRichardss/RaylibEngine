@@ -59,6 +59,8 @@ namespace JREngine{
 		}
 		Instance()->Exit();
 	}
+	//change all this
+	//just use texturePro and transform so things are centered on their centers.
 	void Engine::RenderFrame()
 	{
 		BeginDrawing();
@@ -70,24 +72,9 @@ namespace JREngine{
 				TraceLog(LOG_WARNING, "Object reference in render queue was null, skipping!");
 				continue;
 			}
-			TextureWrapper& wrapperBase = *(obj->Visuals);
-			switch (wrapperBase.Function) {
-			case TWT_DrawTexturePro:
-			{
-				const TextureWrapperPro& wrapper = static_cast<const TextureWrapperPro&>(wrapperBase);
-				DrawTexturePro(wrapper.Texture, wrapper.SourceRect, wrapper.DestRect, wrapper.Origin, wrapper.Rotation, wrapper.Tint);
-			}	break;
-			case TWT_DrawTextureEx:
-			{
-				const TextureWrapperEx& wrapper = static_cast<const TextureWrapperEx&>(wrapperBase);
-				DrawTextureEx(wrapper.Texture, wrapper.Position, wrapper.Rotation, wrapper.Scale, wrapper.Tint);
-				DrawCircle(wrapper.Position.x, wrapper.Position.y, 2, RED);
-			}	break;
-			default:
-			{
-				AssertFail("Unreachable - RenderFrame() switch on TextureWrapperTarget");
-			}	break;
-			}
+			const TextureWrapper& wrapper = *(obj->Visuals);
+			DrawTexturePro(wrapper.Texture, wrapper.SourceRect, wrapper.DestRect, wrapper.Origin, wrapper.Rotation, wrapper.Tint);
+			DrawCircle(obj->position.x, obj->position.y, 2, RED);
 		}
 		EndMode2D();
 		EndDrawing();

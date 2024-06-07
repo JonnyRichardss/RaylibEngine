@@ -25,7 +25,7 @@ namespace JREngine
 			}
 		}
 	}
-	void RenderableObject::UpdateTextureWrapperEx(Texture newTexture, Vector2 position, float rotation, float scale, Color tint)
+	/*void RenderableObject::UpdateTextureWrapperEx(Texture newTexture, Vector2 position, float rotation, float scale, Color tint)
 	{
 		TextureWrapperEx* newTextureWrapper = new TextureWrapperEx(newTexture, position, rotation, scale, tint);
 		std::unique_ptr<TextureWrapper> newVisuals(newTextureWrapper);
@@ -36,7 +36,7 @@ namespace JREngine
 		TextureWrapperPro* newTextureWrapper = new TextureWrapperPro(newTexture, sourceRect, destRect, origin, rotation, tint);
 		std::unique_ptr<TextureWrapper> newVisuals(newTextureWrapper);
 		Visuals.swap(newVisuals);
-	}
+	}*/
 
 }
 

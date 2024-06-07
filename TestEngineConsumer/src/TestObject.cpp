@@ -8,7 +8,8 @@ namespace JREngine
 		//init visuals
 		Texture tex = LoadTexture("Assets/whitetriangle.png");
 		Vector2 pos = { 0,0 };
-		Visuals = std::unique_ptr<TextureWrapper>(new TextureWrapperEx(tex, pos, 0, 1, GREEN));
+		Vector2 size = { 100,100 };
+		Visuals = std::unique_ptr<TextureWrapper>(new TextureWrapper(tex,pos,size,0,GREEN));
 	}
 
 	void TestObject::Update(float dT)
