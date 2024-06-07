@@ -135,7 +135,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MainScene.cpp" />
     <ClCompile Include="src\TestEngineConsumer.cpp" />
+    <ClCompile Include="src\TestObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\include\MainScene.h" />
+    <ClInclude Include="src\include\TestObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\whitetriangle.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
