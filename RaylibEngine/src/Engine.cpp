@@ -65,7 +65,7 @@ namespace JREngine{
 	{
 		BeginDrawing();
 		
-		ClearBackground(RAYWHITE);
+		ClearBackground(BACK_COLOR);
 		BeginMode2D(MainCamera);
 		for (const RenderableObject* obj : ActiveScene->RenderQueue) {
 			if (obj == nullptr) {

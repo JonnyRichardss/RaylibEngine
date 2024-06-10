@@ -1,24 +1,19 @@
 #include "SortingScene.h"
 #include "SortingBar.h"
-#include <cstdlib>
-#include <ctime>
 #include <algorithm>
-#include <random>
+
 
 
 void SortingScene::Init()
 {
 	Texture tex = LoadTexture("Assets/whitesquare.png");
-	srand(time(NULL));
 	int num_bars = DEFAULT_WINDOW_WIDTH / (BAR_WIDTH);
 	for (int i = 0; i < num_bars; i++) {
 		SortingBar* b = new SortingBar(i+1,tex);
 		//instantiate new bar
 		RegisterObject(b);
 	}
-	i = j = 0;
-	auto rng = std::default_random_engine{};
-	std::shuffle(UpdateQueue.begin(), UpdateQueue.end(), rng);
+	Reset();
 }
 
 void SortingScene::Update()
@@ -28,10 +23,24 @@ void SortingScene::Update()
 	{
 		auto& obj = UpdateQueue[i];
 		obj->position = { (float)i * BAR_WIDTH,obj->position.y };
+		SortingBar* b = static_cast<SortingBar*>(obj.get());
+		if (b->value == i + 1) b->color = GREEN;
+		else b->color = LIGHTGRAY;
+
+		if (b->changed) {
+			b->color = RED;
+			b->changed = false;
+		}
 		obj->UpdateAndRender(RenderQueue);
 
 	}
 	PostUpdate();
+}
+
+void SortingScene::Reset()
+{
+	i = j = 0;
+	std::shuffle(UpdateQueue.begin(), UpdateQueue.end(), rng);
 }
 
 
@@ -41,6 +50,7 @@ static void BubbleStep(std::vector<std::unique_ptr<JREngine::RenderableObject>>&
 /// DECLARATIONS
 void SortingScene::PreUpdate()
 {
+	if (IsKeyPressed(KEY_SPACE)) Reset();
 	//complete one step of algorithm, update queue order determines where it is drawn
 	BubbleStep(UpdateQueue, i, j);
 }
@@ -53,6 +63,8 @@ static void BubbleStep(std::vector<std::unique_ptr<JREngine::RenderableObject>>&
 	SortingBar& barJ = *static_cast<SortingBar*>(objects[j].get());
 	SortingBar& barK = *static_cast<SortingBar*>(objects[j+1].get());
 	if (barJ.value > barK.value) {
+		barJ.changed = true;
+		barK.changed = true;
 		std::swap(objects[j],objects[j+1]);
 	}
 	j++;

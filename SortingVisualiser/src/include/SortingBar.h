@@ -8,6 +8,7 @@ public:
 	SortingBar(float value,Texture tex);
 	void Start() override;
 	float value;
+	bool changed;
 protected:
 	void Update(float dT) override;
 	Texture tex;

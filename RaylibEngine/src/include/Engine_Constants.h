@@ -4,11 +4,13 @@
 #define DEFAULT_WINDOW_WIDTH 800
 #define DEFAULT_WINDOW_HEIGHT 800
 #define DEFAULT_WINDOW_TITLE "Raylib Window"
+#define BACK_COLOR GRAY
 #define DRAW_DEBUG false
 #define ANCHOR_CENTER false
-#define TARGET_FPS 1000
+#define TARGET_FPS 100
 #define EXIT_KEY KEY_ESCAPE
-#define BAR_WIDTH 4
+#define BAR_WIDTH 20
+#define BAR_HEIGHT_MULT 16
 #define CAMERA_OFFSET {0,0}
 #define MAX_RANDOM_HEIGHT 256
 
