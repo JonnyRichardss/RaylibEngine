@@ -16,6 +16,7 @@ namespace JREngine
 		std::unique_ptr<TextureWrapper> Visuals; //must be instatiated in derived class to one of the derived forms of TextureWrapper to choose the draw function to use
 		virtual void UpdateAndRender(std::vector<RenderableObject*>& renderQueue);
 		virtual void Start() = 0;
+		Color color;
 		bool Active;
 		bool Visible;
 	protected:

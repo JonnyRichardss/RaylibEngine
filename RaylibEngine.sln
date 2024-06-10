@@ -16,6 +16,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestEngineConsumer", "TestE
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "raylib", "raylib-master\raylib.vcxproj", "{8898EA18-743A-15EF-5DF5-284349369C3F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SortingVisualiser", "SortingVisualiser\SortingVisualiser.vcxproj", "{A4647508-3E26-4738-B07A-4558F4F78B16}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D9A78D95-16E7-4F66-A6D1-BAF502B5E07D} = {D9A78D95-16E7-4F66-A6D1-BAF502B5E07D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -62,6 +67,18 @@ Global
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|x64.Build.0 = Release|x64
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|x86.ActiveCfg = Release|Win32
 		{8898EA18-743A-15EF-5DF5-284349369C3F}.Release|x86.Build.0 = Release|Win32
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|ARM64.ActiveCfg = Debug|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|ARM64.Build.0 = Debug|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|x64.ActiveCfg = Debug|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|x64.Build.0 = Debug|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|x86.ActiveCfg = Debug|Win32
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Debug|x86.Build.0 = Debug|Win32
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|ARM64.ActiveCfg = Release|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|ARM64.Build.0 = Release|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|x64.ActiveCfg = Release|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|x64.Build.0 = Release|x64
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|x86.ActiveCfg = Release|Win32
+		{A4647508-3E26-4738-B07A-4558F4F78B16}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

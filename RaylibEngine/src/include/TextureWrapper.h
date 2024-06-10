@@ -1,6 +1,7 @@
 #ifndef TEXTURE_WRAPPER_H
 #define TEXTURE_WRAPPER_H
 #include "raylib.h"
+#include "Engine_Constants.h"
 namespace JREngine
 {
 	struct TextureWrapper {
@@ -25,9 +26,21 @@ namespace JREngine
 			Rotation(rotation),
 			Tint(tint)
 		{
-			SourceRect = { 0.0f, 0.0f, (float)texture.width, (float)texture.height };
-			DestRect = { position.x - (size.x / 2.0f), position.y - (size.y / 2.0f), size.x, size.y};
-			Origin = { (size.x / 2.0f), (size.y / 2.0f) };
+			UpdatePos(position, size);
+		}
+		void UpdatePos(Vector2 position,Vector2 size) {
+			SourceRect = { 0.0f, 0.0f, (float)Texture.width, (float)Texture.height };
+			if (ANCHOR_CENTER) {
+				DestRect = { (position.x - (size.x / 4.0f)), (position.y - (size.y / 4.0f)), size.x, size.y };
+				Origin = { (size.x / 4.0f), (size.y / 4.0f) };
+			}
+			else {
+				DestRect = { position.x , position.y, size.x, size.y };
+				Origin = { 0,0 };
+			}
+		}
+		void UpdateColor(Color newColor) {
+			Tint = newColor;
 		}
 	};
 }

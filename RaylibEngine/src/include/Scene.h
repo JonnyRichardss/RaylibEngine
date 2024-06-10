@@ -10,7 +10,7 @@ namespace JREngine {
 		Scene();
 		virtual ~Scene();
 		virtual void Init() = 0;
-		void Update();
+		virtual void Update(); //when you override update make sure to re-implements its functionality
 		void RegisterObject(RenderableObject* obj);
 		void DeregisterObject(RenderableObject* obj);
 		void DeregisterObject(int id);

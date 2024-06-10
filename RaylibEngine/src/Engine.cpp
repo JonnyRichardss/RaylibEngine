@@ -36,7 +36,7 @@ namespace JREngine{
 		SetExitKey(KEY_ESCAPE);
 		Camera2D& Camera = Instance()->MainCamera;
 		Camera.target = { 0,0 };
-		Camera.offset = {windowW/2.0f,windowH/2.0f };
+		Camera.offset = CAMERA_OFFSET;
 		Camera.rotation=0.0f;
 		Camera.zoom=1.0f;
 	}
@@ -74,7 +74,9 @@ namespace JREngine{
 			}
 			const TextureWrapper& wrapper = *(obj->Visuals);
 			DrawTexturePro(wrapper.Texture, wrapper.SourceRect, wrapper.DestRect, wrapper.Origin, wrapper.Rotation, wrapper.Tint);
-			DrawCircle(obj->position.x, obj->position.y, 2, RED);
+			if (DRAW_DEBUG) {
+				DrawCircle(obj->position.x, obj->position.y, 3, RED);
+			}
 		}
 		EndMode2D();
 		EndDrawing();
